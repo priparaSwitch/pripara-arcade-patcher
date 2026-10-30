@@ -1,0 +1,20 @@
+# Local validation outputs can contain the user's game data. Never publish them.
+.local-tests/
+dist/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+*.rar
+*.7z
+*.exe
+*.dll
+*.dmp
+*.zip
+*.pem
+*.key
+known_hosts
+__pycache__/
+.DS_Store
+Thumbs.db

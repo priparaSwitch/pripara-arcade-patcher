@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "applicationVersion": "1.0.3",
+  "patchVersion": "V17",
+  "id": "pripara-hk-v17",
+  "source": {
+    "archivePrefix": "prineohk/game/"
+  },
+  "exe": {
+    "path": "Prineo.exe",
+    "size": 19845120,
+    "sha256": "61351e371c3fa7e3f872ed36e4769def4a5c7528dd91b828d215f04696142fa2"
+  },
+  "profiles": {
+    "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49": {
+      "name": "RAR original / LAA baseline",
+      "source": {
+        "path": "Prineo.exe",
+        "size": 19831808,
+        "sha256": "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49"
+      },
+      "payload": {
+        "file": "prineo-base-to-v17.ppd.gz",
+        "size": 3695,
+        "sha256": "168e78b105ee314993b0c291ff7e34f53268cde73a009ce36fc3b1fb42f74509",
+        "uncompressedSize": 13932,
+        "uncompressedSha256": "a96cc00bacd336151ace55f08b968e5bb2e0854287c726327efe0285be98c211",
+        "compression": "gzip"
+      }
+    },
+    "55d2642b8d3e9d1f979d05152855f155ca90badce7f2879e84fb37f747159766": {
+      "name": "Existing camera-compatibility baseline",
+      "source": {
+        "path": "Prineo.exe",
+        "size": 19832320,
+        "sha256": "55d2642b8d3e9d1f979d05152855f155ca90badce7f2879e84fb37f747159766"
+      },
+      "payload": {
+        "file": "prineo-camfix-to-v17.ppd.gz",
+        "size": 3577,
+        "sha256": "88759cea21998764d018d425ddafd3d1f654849afde52eedaaedf00ae8a62a25",
+        "uncompressedSize": 13343,
+        "uncompressedSha256": "aa37746eba2543336caf130063c376b4de6cea2ad32f145b2c2a81b6591bd233",
+        "compression": "gzip"
+      }
+    }
+  },
+  "targets": [
+    {
+      "path": "system_options.txt",
+      "kind": "config",
+      "size": 495,
+      "sha256": "24b3e458576de5bfb7ca55baa88309939aa6145845d37936e25714b3d10c7623"
+    },
+    {
+      "path": "camera/QRReader.ini",
+      "kind": "config",
+      "size": 200,
+      "sha256": "66e2320781c44680a90abf34308b23e3085651747578479d131c77fe8e9aac9d"
+    },
+    {
+      "path": "media/past/hud/menu/entrance/window/ENT_Window_First.bin",
+      "kind": "companionSource",
+      "size": 1560,
+      "sha256": "2853db9536a75a84a02f1ea07896619a8c7998e2f880b5fdb108659e2e054418"
+    },
+    {
+      "path": "media/past/hud/menu/entrance/window/ENT_Window_First_tex.bin",
+      "kind": "companionSource",
+      "size": 370966,
+      "sha256": "31b958f960c3503fa400600792a893b42015e53073874257ecbb4a510153ec51"
+    },
+    {
+      "path": "QRReader.dll",
+      "kind": "dependency",
+      "size": 75496,
+      "sha256": "3959ced4f2b035e4149c606da4fd39c55d383fa8c4b239bd99c5255dfaa3dfb8"
+    }
+  ],
+  "dependencyChecks": [
+    {
+      "path": "QRReader.dll",
+      "size": 75496,
+      "sha256": "3959ced4f2b035e4149c606da4fd39c55d383fa8c4b239bd99c5255dfaa3dfb8",
+      "output": false,
+      "purpose": "Required original DLL for the raw HK Print QR encoder; verify only, never distribute."
+    }
+  ],
+  "outputPaths": [
+    "Prineo.exe",
+    "system_options.txt",
+    "camera/QRReader.ini",
+    "media/hud/menu/entrance/window/ENT_Window_First.bin",
+    "media/hud/menu/entrance/window/ENT_Window_First_tex.bin"
+  ],
+  "companionCopies": [
+    {
+      "sourcePath": "media/past/hud/menu/entrance/window/ENT_Window_First.bin",
+      "targetPath": "media/hud/menu/entrance/window/ENT_Window_First.bin",
+      "sourceSize": 1560,
+      "sourceSha256": "2853db9536a75a84a02f1ea07896619a8c7998e2f880b5fdb108659e2e054418"
+    },
+    {
+      "sourcePath": "media/past/hud/menu/entrance/window/ENT_Window_First_tex.bin",
+      "targetPath": "media/hud/menu/entrance/window/ENT_Window_First_tex.bin",
+      "sourceSize": 370966,
+      "sourceSha256": "31b958f960c3503fa400600792a893b42015e53073874257ecbb4a510153ec51"
+    }
+  ],
+  "configRulesFile": "config-rules.json",
+  "cameraPolicy": {
+    "profile": "virtual",
+    "vid": "CAFE",
+    "pid": "0002",
+    "userSelectable": false
+  },
+  "state": {
+    "v9UserConfirmed": true,
+    "v15PrintAndLoginUserConfirmed": true,
+    "v17GameTested": false,
+    "v17FriendGameRecognitionConfirmed": false,
+    "v17Change": "Print Friend QR now uses the original Friend object as raw HK App Friend type3; V15 MyTicket output and V16 End QR suppression retained.",
+    "v17FriendSenderNativeCases": 60,
+    "v17FriendReceiverNativeCases": 16,
+    "v17FriendReceiverFullPostprocessCases": 8,
+    "v17FriendDllImageCases": 4,
+    "mySenderUnchangedFromV15": true,
+    "nativeStartupAndFriendInputRetained": true
+  },
+  "privacy": "All source bytes remain in the browser. Only prebuilt delta/static application assets are downloaded. No source, filename or checksum upload or telemetry.",
+  "limitations": [
+    "This remains HK with restored native scenes and retained English keyboard fallback, not a full original Japanese arcade build.",
+    "Print emits the current eligible profile as a raw HK App MyTicket QR; guest/default profiles retain native Print fallback. General Japanese P-family login is not implemented.",
+    "Friend QR is generated from its own original Friend object, not the main player. Native input consumes its supported name, identity, outfit and six appearance fields; this is not a lossless mapping of every Print-only extra field.",
+    "Native self-ticket, duplicate-ticket, item/appearance and live-mode selection rules remain active. V17 Friend in-game recognition is not yet user-confirmed.",
+    "QRReader.dll is required and verified from the original archive; it is not included in the output ZIP or hosted on the server.",
+    "Virtual camera registration/capture helper and other Windows prerequisites are separate installation steps."
+  ]
+}

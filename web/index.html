@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="원본 RAR를 업로드하지 않고 브라우저에서 필요한 파일만 확인하는 프리파라 아케이드 패처">
+  <title>프리파라 아케이드 패처 · pripara-arcade-patcher</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">P</span><span>PriPara <b>ARCADE PATCHER</b></span></a>
+    <span class="badge">V17 · 브라우저 로컬 처리</span>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">PRIPARA ARCADE · HONG KONG</p>
+      <h1>프리파라 아케이드 패처</h1>
+      <p class="lead">원본 RAR에서 필요한 파일만 확인하고, 사용할 환경에 맞게 패치합니다.<br>선택한 원본은 서버로 전송하지 않으며, 변경 파일만 ZIP으로 받습니다.</p>
+    </section>
+    <section id="launch-help" class="panel launch-help">
+      <h2>실행 안내</h2>
+      <p>패처를 준비하고 있습니다. 이 안내가 계속 보이면 웹 서버 주소로 다시 열어 주세요. index.html을 직접 여는 방식은 지원하지 않습니다.</p>
+      <noscript><p class="error">이 패처를 사용하려면 브라우저에서 JavaScript를 허용해야 합니다.</p></noscript>
+    </section>
+    <div class="layout">
+      <div class="form">
+        <section class="panel">
+          <div class="section-title"><span class="step">01</span><div><h2>원본 파일 선택</h2><p>홍콩판 아케이드 RAR 원자료를 선택하세요.</p></div></div>
+          <label class="file-row" id="archive-row">
+            <span class="file-icon" aria-hidden="true">R</span>
+            <span class="file-label"><strong>아케이드 원본 RAR</strong><small>港机+4gb.rar</small><span class="filename" id="archive-name">RAR 파일을 선택하세요</span></span>
+            <span class="select">파일 선택</span>
+            <input id="archive" type="file" accept=".rar,application/vnd.rar,application/x-rar-compressed" aria-label="아케이드 원본 RAR 선택">
+          </label>
+          <p id="archive-status" class="archive-status" role="status">파일을 선택하면 필요한 대상 파일을 확인합니다.</p>
+          <div class="hint">필요한 파일만 읽고 추출한 뒤, 각 원본의 SHA-256이 기준과 일치할 때 패치합니다. 큰 RAR 전체를 한 번에 메모리에 올리지 않으며, 원본 RAR는 그대로 유지합니다.</div>
+          <details id="files-details">
+            <summary>확인할 파일</summary>
+            <p>실행 파일과 일본어 로그인 안내 패널, QR 리더·실행 설정 중 선택한 항목만 확인합니다. 기본 구성은 최대 6개 파일입니다. QRReader.dll은 검증만 하며 결과 ZIP에는 넣지 않습니다.</p>
+            <ul id="target-list" class="target-list"><li class="placeholder">원본 검사 후 실제 파일 경로를 표시합니다.</li></ul>
+          </details>
+        </section>
+        <section class="panel">
+          <div class="section-title"><span class="step">02</span><div><h2>패치 구성</h2><p>적용할 기능을 선택하세요.</p></div></div>
+          <div class="options">
+            <label class="option"><input id="patch-exe" type="checkbox" checked><span><strong>실행 보정 V17</strong><small>상점·추가 구매·파츠 변경·인쇄 연결<br>Print 마이·우정티켓 QR · 일본어 안내 포함</small></span></label>
+            <label class="option"><input id="patch-settings" type="checkbox" checked><span><strong>QR 리더 · 실행 설정</strong><small>게임 폴더와 프리파라<br>가상카메라 설정 반영</small></span></label>
+          </div>
+          <p class="subnote patch-note">Print에서 마이티켓과 우정티켓 QR을 출력하고, End의 앱 QR 표시는 생략합니다. <span class="pill">V17 우정티켓 실게임 확인 전</span></p>
+          <p class="micro">검증과 패치는 모두 브라우저 안에서 처리합니다. 서버에서는 패치 데이터만 받으며, 원본 내용과 파일명은 서버로 전송하지 않습니다.</p>
+        </section>
+        <section class="panel">
+          <div class="section-title"><span class="step">03</span><div><h2>실행 환경</h2><p>사용할 게임 폴더를 지정하세요.</p></div></div>
+          <fieldset id="settings-group" class="settings-group">
+            <legend class="visually-hidden">QR 리더와 실행 설정</legend>
+            <label class="field"><span>게임 폴더</span><input id="install-path" type="text" value="C:\prineohk\game" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="path-help"></label>
+            <p id="path-help" class="field-help">실제로 게임을 놓을 Windows 폴더입니다. 선택한 경로를 설정 파일에 반영합니다.</p>
+            <div class="camera-fixed"><span>카메라</span><strong>프리파라 가상카메라 · 고정</strong><p>프리파라 가상카메라 드라이버와 카메라 프로그램은 별도로 설치해야 합니다.</p></div>
+          </fieldset>
+          <p id="settings-error" class="field-error" role="status" hidden></p>
+          <div class="included output-included"><span class="check-symbol" aria-hidden="true">↓</span><div><strong>변경 파일 ZIP</strong><small>바뀐 파일과 적용 안내·작업 보고서를 함께 저장</small></div><span class="pill">결과 형식</span></div>
+          <p class="micro">완성 ZIP의 적용 안내에 따라 파일을 게임 폴더에 덮어쓰세요. 이 웹페이지가 PC의 게임 폴더를 직접 변경하지는 않습니다.</p>
+        </section>
+      </div>
+      <aside>
+        <section class="summary panel">
+          <p class="eyebrow">작업 요약</p><h2>선택한 패치</h2>
+          <ul id="selection-list"></ul>
+          <div class="environment-summary"><span>설정할 게임 폴더</span><strong id="path-summary">C:\prineohk\game</strong><span id="camera-summary">프리파라 가상카메라 · 고정</span></div>
+          <div class="totals">
+            <div><span>원본 RAR</span><strong id="archive-size">선택 안 함</strong></div>
+            <div><span>확인할 대상</span><strong id="target-count">최대 6개</strong></div>
+            <div><span id="output-size-label">처리할 파일 용량</span><strong id="output-size">검사 후 표시</strong></div>
+          </div>
+          <p class="space-note" id="space-note">원본의 필요한 파일만 확인합니다. 결과 ZIP을 저장할 공간을 준비하세요.</p>
+          <button id="verify" class="primary" type="button" disabled>대상 파일 확인</button>
+          <button id="build" class="secondary" type="button" disabled>패치 ZIP 만들기</button>
+          <button id="cancel" class="plain" type="button" hidden>작업 취소</button>
+          <button id="clear" class="plain" type="button">선택 및 결과 정리</button>
+          <p class="micro">대상 원본 SHA-256 확인 후 패치<br>원본 내용·파일명 전송 없음 · 원본 변경 없음</p>
+        </section>
+      </aside>
+    </div>
+    <section class="panel progress-panel">
+      <div class="progress-heading"><h2>진행 상태</h2><span id="state-badge" class="badge">준비</span></div>
+      <progress id="progress" max="100" value="0" aria-label="패치 진행률"></progress>
+      <p id="status" role="status" tabindex="-1">패처를 준비하고 있습니다.</p>
+      <ol id="log" aria-live="polite"></ol>
+      <div id="result" class="result" hidden>
+        <div class="result-heading"><span class="check-symbol" aria-hidden="true">✓</span><h3>패치 ZIP이 준비되었습니다</h3></div>
+        <p id="result-message"></p><ul id="changed-files" class="target-list"></ul>
+        <a id="download" class="primary download" download>ZIP 다운로드</a>
+        <p class="micro">원본을 다시 압축한 파일이 아닌, 선택한 패치의 변경 파일만 들어 있습니다.</p>
+      </div>
+      <details><summary>처리 방식과 지원 범위</summary><p>브라우저가 로컬 RAR에서 필요한 항목만 추출하고, 대상 원본의 SHA-256이 기준과 일치하는지 확인한 뒤 패치합니다. 서버에서는 패치 데이터만 내려받습니다. 원본 내용과 파일명은 전송하지 않으며, 압축 안의 실행 파일도 실행하지 않습니다. 이 검사는 선택한 대상 파일에 적용되며 RAR 전체를 검증하지는 않습니다.</p><p>V15의 마이티켓 QR 출력과 해당 QR 로그인은 사용자 확인되었습니다. V17은 이를 유지하며, 우정티켓을 해당 친구·NPC의 정보로 출력합니다. 원래 입력 처리와 자기 티켓·중복 제한을 유지합니다. V17 우정티켓의 실제 게임 인식은 아직 확인되지 않았습니다. 선택과 작업 결과를 해제하려면 ‘선택 및 결과 정리’를 누르거나 탭을 닫습니다.</p></details>
+    </section>
+    <footer>프리파라 아케이드 웹 패처 · 브라우저 로컬 처리 · 원본 업로드 없음</footer>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

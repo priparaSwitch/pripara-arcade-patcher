@@ -1,0 +1,38 @@
+{
+  "defaults": {
+    "installPath": "C:\\prineohk\\game",
+    "camera": {
+      "profile": "virtual",
+      "vid": "CAFE",
+      "pid": "0002"
+    },
+    "windowInfo": "1,720,1280"
+  },
+  "cameraProfiles": {
+    "virtual": {
+      "vid": "CAFE",
+      "pid": "0002"
+    }
+  },
+  "userSelectableCamera": false,
+  "policy": "Always use CAFE:0002. Replace only existing required values; preserve unrelated lines, byte encoding, comments and original per-line endings. Reject missing/duplicate required keys.",
+  "originalTargets": [
+    {
+      "path": "system_options.txt",
+      "kind": "config",
+      "size": 495,
+      "sha256": "24b3e458576de5bfb7ca55baa88309939aa6145845d37936e25714b3d10c7623"
+    },
+    {
+      "path": "camera/QRReader.ini",
+      "kind": "config",
+      "size": 200,
+      "sha256": "66e2320781c44680a90abf34308b23e3085651747578479d131c77fe8e9aac9d"
+    }
+  ],
+  "settingsChanged": [
+    "system_options:current_path,gamedata_current_path,setting_path,smartsignage_path,window_info,camera_pid1,camera_pid2,camera_vid1,camera_vid2",
+    "camera/QRReader.ini:Camera0/Camera1 VID0..VID3 and PID0..PID3, including originally empty values.",
+    "DecodeTimeout/other settings stay unchanged."
+  ]
+}

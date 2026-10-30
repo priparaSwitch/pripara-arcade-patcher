@@ -1,0 +1,8 @@
+* text=auto eol=lf
+# These assets have byte-level integrity records; preserve their exact bytes.
+web/** -text
+*.gz binary
+*.wasm binary
+*.bin binary
+*.png binary
+*.zip binary

@@ -1,0 +1,4 @@
+export const APP_VERSION = '1.0.3';
+export const PATCH_VERSION = 'V17';
+export const TARGET_EXE_SHA256 = '61351e371c3fa7e3f872ed36e4769def4a5c7528dd91b828d215f04696142fa2';
+export const QR_READER_DLL_SHA256 = '3959ced4f2b035e4149c606da4fd39c55d383fa8c4b239bd99c5255dfaa3dfb8';

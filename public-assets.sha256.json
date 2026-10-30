@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "project": "pripara-arcade-patcher",
+  "applicationVersion": "1.0.3",
+  "patchVersion": "V17",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app.js",
+      "size": 17467,
+      "sha256": "4e67c71a5f581a947e75fdb362951ef73a275e292e9fe0b816d80bf379eda7df"
+    },
+    {
+      "path": "data/config-rules.json",
+      "size": 1257,
+      "sha256": "2c38f349579385684627ce222f358c5b0e8dc05782a05719d1b9c7ba34bb0335"
+    },
+    {
+      "path": "data/patch-manifest.json",
+      "size": 5765,
+      "sha256": "1c60ea537519cc09562537dea07b32fa1581cf409372565d1a3383708bd842c2"
+    },
+    {
+      "path": "data/prineo-base-to-v17.ppd.gz",
+      "size": 3695,
+      "sha256": "168e78b105ee314993b0c291ff7e34f53268cde73a009ce36fc3b1fb42f74509"
+    },
+    {
+      "path": "data/prineo-camfix-to-v17.ppd.gz",
+      "size": 3577,
+      "sha256": "88759cea21998764d018d425ddafd3d1f654849afde52eedaaedf00ae8a62a25"
+    },
+    {
+      "path": "engine/apply-prineo-delta.mjs",
+      "size": 3671,
+      "sha256": "5d73186a2c4e15c0c741a044ca38b77f161541fe5e41fe7f95b20a090cb337d6"
+    },
+    {
+      "path": "engine/config-patch.mjs",
+      "size": 3693,
+      "sha256": "742dc62be9a22ad9937572980a54b283b7f16afff51507712bd74990114fd636"
+    },
+    {
+      "path": "engine/hash.js",
+      "size": 3029,
+      "sha256": "51ccf54b909f5aa8f4fdde47a619258ddf6d6a613bf6beb85cb984d4f47796b3"
+    },
+    {
+      "path": "engine/patch.js",
+      "size": 11239,
+      "sha256": "d6a7c9af061f8180ab73ba06b838161232f6600cbb0d1d691147a1c2f8273f56"
+    },
+    {
+      "path": "engine/rar-select.js",
+      "size": 18239,
+      "sha256": "b8df37c12faaa0ce15bff17eb66110a7ec93f40c98b5a8c40fea2516035504eb"
+    },
+    {
+      "path": "engine/vendor/unrar/Extractor.js",
+      "size": 6674,
+      "sha256": "4e6ac19f6adda919248066c361137927e2add5b366087792348eb4737c54255e"
+    },
+    {
+      "path": "engine/vendor/unrar/LICENSE-MIT.txt",
+      "size": 1056,
+      "sha256": "263ab8403cf8651aeff39ce72202a2d8a07eb29e3c37a7190cc6e2e3c0e8da36"
+    },
+    {
+      "path": "engine/vendor/unrar/LICENSE-UnRAR.txt",
+      "size": 718,
+      "sha256": "2933572c0589934d80bc868cd37a15ae44791f2ba53927108791da6105b0bfad"
+    },
+    {
+      "path": "engine/vendor/unrar/README.txt",
+      "size": 1738,
+      "sha256": "340c6e1556323de9b5590a03a86674c305f9a40f50741c16cc6cdc415c8146c5"
+    },
+    {
+      "path": "engine/vendor/unrar/SELECTED_ADAPTER.txt",
+      "size": 1079,
+      "sha256": "7684de09b6a749bf9cbada5b1d829b3c9ed045803c425941e8a374f9f5fbec07"
+    },
+    {
+      "path": "engine/vendor/unrar/selected-core.js",
+      "size": 5578,
+      "sha256": "c8e4b84fecddfb33efdc5afb9ad6824203a30e1da9e2c5ebb0f9780901d63b9e"
+    },
+    {
+      "path": "engine/vendor/unrar/unrar.js",
+      "size": 65577,
+      "sha256": "537e53423523a839706edfb5c89057bcbe6fd7c1c9decfa489c7500615eaa660"
+    },
+    {
+      "path": "engine/vendor/unrar/unrar.wasm",
+      "size": 207593,
+      "sha256": "c7d79f869196e3c79c053ba74a8f629116de8293a94f60cc851bbcd7977d0c2b"
+    },
+    {
+      "path": "engine/zip.js",
+      "size": 4361,
+      "sha256": "875f8df6881184927b1e68e8f230728bb6d2a1d737ec4ab70ab6086f0126c722"
+    },
+    {
+      "path": "index.html",
+      "size": 9742,
+      "sha256": "bee4090377c292b139e6f7869b1e835ed3a4a6b9e7ac715e69476a0455d775bb"
+    },
+    {
+      "path": "release.js",
+      "size": 277,
+      "sha256": "5142ac879413f78c52e4967a8107ff4d88edea5bab74af394fe19820e7a9f354"
+    },
+    {
+      "path": "style.css",
+      "size": 9394,
+      "sha256": "ea6e2ce9bcccfe99f3daa18ef558813116e958cc3d07d23dae9616d215e4c4bf"
+    },
+    {
+      "path": "worker.js",
+      "size": 2056,
+      "sha256": "6a8de87acece879f4bf8303c2b0d36734ac0fab79557528b6262525f02d21919"
+    }
+  ]
+}

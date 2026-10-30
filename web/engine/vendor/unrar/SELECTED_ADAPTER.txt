@@ -1,0 +1,17 @@
+selected-core.js is adapted from the existing local NS PriPara web patcher's
+arcade-unrar-core.js. Only import/wasm URL locations changed.
+
+rar-select.js first validates a selected file header and copies only that file's
+bounded compressed range into memory. This decoder sees a synthetic one-member
+RAR view made from the original header/body plus minimal main/end headers. It
+does not scan/decode the rest of the archive and does not execute input code.
+
+The caller supplies memory read/write callbacks instead of OPFS. Therefore the
+new selected-file adapter does not require SharedArrayBuffer, FileReaderSync,
+OPFS, crypto.subtle or a secure context. The root application runs it in its own
+worker, which can be terminated on cancellation. Signals are checked before/
+after awaited reads and at decoder callbacks; cancellation events in the same
+worker cannot interrupt synchronous decoding until its task returns.
+
+unrar.js, unrar.wasm and Extractor.js are unchanged from the pinned vendor files
+documented in README.txt. The original decoder and MIT/UnRAR licenses remain.

@@ -1,0 +1,17 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {listFiles,verifySite} from './verify-site.mjs';
+import {bytesFile,writeZip} from '../web/engine/zip.js';
+const root=new URL('../',import.meta.url);
+const status=await verifySite();
+const roots=['.gitignore','.gitattributes','package.json','public-assets.sha256.json','README.md','THIRD_PARTY_NOTICES.md'];
+for(const dir of ['.github/','docs/','scripts/','tests/','web/'])roots.push(...(await listFiles(new URL(dir,root))).map(p=>dir+p));
+const chunks=[],files=[];
+for(const path of roots.sort())files.push(bytesFile('pripara-arcade-patcher/'+path,new Uint8Array(await readFile(new URL(path,root)))));
+await writeZip(files,{write:async bytes=>chunks.push(bytes)});
+await mkdir(new URL('dist/',root),{recursive:true});
+const zip=Buffer.concat(chunks),sha256=createHash('sha256').update(zip).digest('hex');
+const filename='pripara-arcade-patcher-github-ready.zip';
+await writeFile(new URL('dist/'+filename,root),zip);
+await writeFile(new URL('dist/package-summary.json',root),JSON.stringify({project:status.project,version:status.version,patch:status.patch,filename,bytes:zip.length,sha256,files:roots.sort(),includesOriginalGame:false,includesLocalTestOutputs:false,githubPublished:false},null,2)+'\n');
+console.log(JSON.stringify({filename:'dist/'+filename,bytes:zip.length,sha256,files:roots.length},null,2));
