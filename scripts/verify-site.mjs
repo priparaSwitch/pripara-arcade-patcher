@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
 import {resolve} from 'node:path';
 import {validateManifest} from '../web/engine/patch.js';
+import {scanPublicTree} from './scan-public.mjs';
 
 export const root = fileURLToPath(new URL('../',import.meta.url));
 const digest = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -19,6 +20,7 @@ export async function listFiles(directory,relative=''){
   return out.sort();
 }
 export async function verifySite({write=false}={}){
+  await scanPublicTree();
   const web=new URL('../web/',import.meta.url),paths=await listFiles(web),files=[];
   for(const path of paths){
     assert.ok(!/\.(?:exe|dll|rar|zip|7z|dmp|bmp|pem|key)$/i.test(path),`Not a public patch asset: ${path}`);

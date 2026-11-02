@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "applicationVersion": "1.0.3",
-  "patchVersion": "V17",
-  "id": "pripara-hk-v17",
+  "applicationVersion": "1.1.0",
+  "patchVersion": "V20.1",
+  "id": "pripara-hk-v20-1",
   "source": {
     "archivePrefix": "prineohk/game/"
   },
   "exe": {
     "path": "Prineo.exe",
-    "size": 19845120,
-    "sha256": "61351e371c3fa7e3f872ed36e4769def4a5c7528dd91b828d215f04696142fa2"
+    "size": 19846144,
+    "sha256": "c6d5485c20547395890f4aee7bfbb2fb4393b69c5131fa5941fc75d7b1ca575f"
   },
   "profiles": {
     "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49": {
@@ -20,11 +20,11 @@
         "sha256": "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49"
       },
       "payload": {
-        "file": "prineo-base-to-v17.ppd.gz",
-        "size": 3695,
-        "sha256": "168e78b105ee314993b0c291ff7e34f53268cde73a009ce36fc3b1fb42f74509",
-        "uncompressedSize": 13932,
-        "uncompressedSha256": "a96cc00bacd336151ace55f08b968e5bb2e0854287c726327efe0285be98c211",
+        "file": "prineo-base-to-v20-1.ppd.gz",
+        "size": 3954,
+        "sha256": "cb30b25ad6b34e548b19da40db7773a2b60c74d6f883e8aa08f68faa02205bdb",
+        "uncompressedSize": 14986,
+        "uncompressedSha256": "c97a2c575ef826f55c822732fd5ad8e6bb49cfb2210b65649e4169e8952c8444",
         "compression": "gzip"
       }
     },
@@ -36,11 +36,11 @@
         "sha256": "55d2642b8d3e9d1f979d05152855f155ca90badce7f2879e84fb37f747159766"
       },
       "payload": {
-        "file": "prineo-camfix-to-v17.ppd.gz",
-        "size": 3577,
-        "sha256": "88759cea21998764d018d425ddafd3d1f654849afde52eedaaedf00ae8a62a25",
-        "uncompressedSize": 13343,
-        "uncompressedSha256": "aa37746eba2543336caf130063c376b4de6cea2ad32f145b2c2a81b6591bd233",
+        "file": "prineo-camfix-to-v20-1.ppd.gz",
+        "size": 3839,
+        "sha256": "8ac08309985e344a617d93393602d529f156c13212e4fbd1970d33686cf7e2ce",
+        "uncompressedSize": 14397,
+        "uncompressedSha256": "15f9e1f6275b78fb330bafea60b45939153b19004970d9dabae6b5421d721e5a",
         "compression": "gzip"
       }
     }
@@ -119,13 +119,19 @@
     "v15PrintAndLoginUserConfirmed": true,
     "v17GameTested": false,
     "v17FriendGameRecognitionConfirmed": false,
-    "v17Change": "Print Friend QR now uses the original Friend object as raw HK App Friend type3; V15 MyTicket output and V16 End QR suppression retained.",
+    "v17Change": "Print Friend QR uses the original Friend object as raw HK App Friend type3; MyTicket output and native input are retained.",
     "v17FriendSenderNativeCases": 60,
     "v17FriendReceiverNativeCases": 16,
     "v17FriendReceiverFullPostprocessCases": 8,
     "v17FriendDllImageCases": 4,
     "mySenderUnchangedFromV15": true,
-    "nativeStartupAndFriendInputRetained": true
+    "nativeStartupAndFriendInputRetained": true,
+    "v18DreamEntryScanSkipped": true,
+    "v19DreamPostplayUserConfirmed": true,
+    "v20DreamBrightnessPercent": 100,
+    "v20BrightnessNewOutputUserConfirmed": false,
+    "endQrEnabled": true,
+    "experimentalFullscreenFadeIncluded": false
   },
   "privacy": "All source bytes remain in the browser. Only prebuilt delta/static application assets are downloaded. No source, filename or checksum upload or telemetry.",
   "limitations": [
@@ -134,6 +140,8 @@
     "Friend QR is generated from its own original Friend object, not the main player. Native input consumes its supported name, identity, outfit and six appearance fields; this is not a lossless mapping of every Print-only extra field.",
     "Native self-ticket, duplicate-ticket, item/appearance and live-mode selection rules remain active. V17 Friend in-game recognition is not yet user-confirmed.",
     "QRReader.dll is required and verified from the original archive; it is not included in the output ZIP or hosted on the server.",
-    "Virtual camera registration/capture helper and other Windows prerequisites are separate installation steps."
+    "Virtual camera registration/capture helper and other Windows prerequisites are separate installation steps.",
+    "Dream postplay flow was user-confirmed; the new 100% DreamPrint brightness still needs a new in-game output check.",
+    "The unsuccessful experimental V21 fullscreen Fade correction is excluded; partial white transitions remain unresolved."
   ]
 }
