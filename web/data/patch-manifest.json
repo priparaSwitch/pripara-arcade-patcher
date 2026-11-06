@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "applicationVersion": "1.3.0",
-  "patchVersion": "V24",
-  "id": "pripara-hk-v24",
+  "applicationVersion": "1.4.0",
+  "patchVersion": "V28",
+  "id": "pripara-hk-v28",
   "source": {
     "archivePrefix": "prineohk/game/"
   },
   "exe": {
     "path": "Prineo.exe",
-    "size": 19850240,
-    "sha256": "2cd62c3af5874a6b1c2d6a46754beb51a9438a7e7a72614071ce7a9b840fa74b"
+    "size": 19853312,
+    "sha256": "2c459f9ed3b9575ac38c8c2afcca5208d04a420ae7f54a1036dd4fc0f9702b18"
   },
   "profiles": {
     "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49": {
@@ -20,11 +20,11 @@
         "sha256": "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49"
       },
       "payload": {
-        "file": "prineo-base-to-v24.ppd.gz",
-        "size": 5307,
-        "sha256": "20960f2097111e0d40fbc9de196933c248e6f97f52642799d9ae53ab36d00c8a",
-        "uncompressedSize": 19174,
-        "uncompressedSha256": "fc1aeea1f51f90c4758470d7ff379e4aa22d368f7ab95e71aceaf30a2c0c83aa",
+        "file": "prineo-base-to-v28.ppd.gz",
+        "size": 5829,
+        "sha256": "3211e856f7319e290011db1148e46b987611613632214a7de2c56b69399fc35b",
+        "uncompressedSize": 22265,
+        "uncompressedSha256": "d355f44d497c93cafac9f3bc55047819692dacd34f7d4a17c9776d9aef3221ca",
         "compression": "gzip"
       }
     },
@@ -36,11 +36,11 @@
         "sha256": "55d2642b8d3e9d1f979d05152855f155ca90badce7f2879e84fb37f747159766"
       },
       "payload": {
-        "file": "prineo-camfix-to-v24.ppd.gz",
-        "size": 5188,
-        "sha256": "b078e694d5fd1b993ac04a1c4b7288a2277ba4ba8f8f54f919726567245ac1ea",
-        "uncompressedSize": 18585,
-        "uncompressedSha256": "c0bccc53df85a641091fc9f30932d2433d069c3307781beaf64d491880f04b39",
+        "file": "prineo-camfix-to-v28.ppd.gz",
+        "size": 5724,
+        "sha256": "6618d04e2d92b20e0fcfd82e26962f6eeb6fed8498a5549463faaa0cefc9983e",
+        "uncompressedSize": 21959,
+        "uncompressedSha256": "cb3af5bb22ec318b4bddb0e952e20684d7cdd43e64ba78955adb600d08c177a3",
         "compression": "gzip"
       }
     }
@@ -146,7 +146,19 @@
     "v24Second3dsQuestionSkipped": true,
     "v24AdditionalPrintOnlyPurchasedItems": true,
     "v24BaseItemPrependUsed": false,
-    "v24GameTested": false
+    "v24GameTested": false,
+    "v25TvLotBeforeGodLive": true,
+    "v25NativePreparationWait": true,
+    "v27OriginalFirstShopItemPreserved": true,
+    "v27OriginalFivePoolPreserved": true,
+    "v27All24CandidatesPreserved": true,
+    "v27NativeNoteIconsConnected": true,
+    "v27ExtraRandomSelection": false,
+    "v27HighSeedRetries": 0,
+    "v28ForceJewlie": false,
+    "v28NativeAppearanceDecision": true,
+    "v28AppearanceFailurePreservesFirstShopItem": true,
+    "v28GameTested": false
   },
   "privacy": "All source bytes remain in the browser. Only prebuilt delta/static application assets are downloaded. No source, filename or checksum upload or telemetry.",
   "limitations": [
@@ -159,6 +171,7 @@
     "The earlier V19 Dream route was user-confirmed. V24 changes the order; that reordered flow and the new 100% DreamPrint output are not yet user-confirmed.",
     "The unsuccessful experimental V21 fullscreen Fade correction is excluded; partial white transitions remain unresolved.",
     "V22 changes CharaMake to start at hairstyle with native full-part availability. Isolated native lifecycle and ABI checks passed; a V22 normal-game playthrough is not yet user-confirmed. Stamp-rally ownership and entrance-retention debug options are not forced.",
-    "V24 retains the base Print/DreamPrint before BuyNew coins. GodLive is retained for TV live only in the supported current menu routes. Paid Shop may enter CharaMake when the first question is accepted; only additional purchases are printed afterward. Reordered V24 play has not been user-confirmed."
+    "V24 retains the base Print/DreamPrint before BuyNew coins. GodLive is retained for TV live only in the supported current menu routes. Paid Shop may enter CharaMake when the first question is accepted; only additional purchases are printed afterward. Reordered V24 play has not been user-confirmed.",
+    "V28 prepares the native TV lottery before GodLive, preserves its first Shop item and native five-note pool, and connects item-note icons. Native item-linked appearance and guarantee branches remain active; there is no custom force100, high-rarity retry or new random winner selection. In-game V28 play is not yet user-confirmed."
   ]
 }

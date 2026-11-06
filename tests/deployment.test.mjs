@@ -8,7 +8,7 @@ import {loadManifest} from '../web/engine/patch.js';
 const site=new URL('../web/',import.meta.url);
 test('published files match the complete integrity inventory and active release manifest',async()=>{
   const report=await verifySite();
-  assert.equal(report.patch,'V24');assert.equal(report.patchBytes,10495);
+  assert.equal(report.patch,'V28');assert.equal(report.patchBytes,11553);
 });
 
 test('all browser module imports, assets and Worker stay inside project subpaths',async()=>{
@@ -38,7 +38,7 @@ test('manifest downloads are local GET requests that refuse redirects and omit c
     assert.equal(options.method,'GET');assert.equal(options.redirect,'error');assert.equal(options.credentials,'omit');
     assert.equal(options.body,undefined);return new Response(await readFile(url));
   };
-  try{assert.equal((await loadManifest()).patchVersion,'V24');assert.equal(calls,1);}
+  try{assert.equal((await loadManifest()).patchVersion,'V28');assert.equal(calls,1);}
   finally{globalThis.fetch=previous;}
 });
 

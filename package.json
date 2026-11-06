@@ -1,6 +1,6 @@
 {
   "name": "pripara-arcade-patcher",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "private": true,
   "description": "Browser-local PriPara arcade patcher for GitHub Pages; patch assets are bundled in this repository.",
   "type": "module",
