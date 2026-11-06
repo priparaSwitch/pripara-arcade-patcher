@@ -26,7 +26,7 @@ function manifestFixture(){
   return {schemaVersion:1,applicationVersion:APP_VERSION,patchVersion:PATCH_VERSION,exe:{sha256:TARGET_EXE_SHA256},profiles:{},targets:[{...dependency}],dependencyChecks:[dependency]};
 }
 test('old manifests and missing or incompatible original DLL gates fail closed',()=>{
-  assert.equal(validateManifest(manifestFixture()).patchVersion,'V20.1');
+  assert.equal(validateManifest(manifestFixture()).patchVersion,'V24');
   for(const change of [m=>m.patchVersion='V16',m=>m.applicationVersion='1.0.2',m=>m.exe.sha256='0'.repeat(64),m=>m.dependencyChecks=[],m=>m.dependencyChecks[0].output=true,m=>m.targets[0].sha256='0'.repeat(64)]){
     const m=manifestFixture();change(m);assert.throws(()=>validateManifest(m));
   }

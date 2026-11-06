@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "applicationVersion": "1.1.0",
-  "patchVersion": "V20.1",
-  "id": "pripara-hk-v20-1",
+  "applicationVersion": "1.3.0",
+  "patchVersion": "V24",
+  "id": "pripara-hk-v24",
   "source": {
     "archivePrefix": "prineohk/game/"
   },
   "exe": {
     "path": "Prineo.exe",
-    "size": 19846144,
-    "sha256": "c6d5485c20547395890f4aee7bfbb2fb4393b69c5131fa5941fc75d7b1ca575f"
+    "size": 19850240,
+    "sha256": "2cd62c3af5874a6b1c2d6a46754beb51a9438a7e7a72614071ce7a9b840fa74b"
   },
   "profiles": {
     "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49": {
@@ -20,11 +20,11 @@
         "sha256": "73ac687bf7335b368c61f4bc294bad3ad3ef5f864de9a6874c1e6e5732d80d49"
       },
       "payload": {
-        "file": "prineo-base-to-v20-1.ppd.gz",
-        "size": 3954,
-        "sha256": "cb30b25ad6b34e548b19da40db7773a2b60c74d6f883e8aa08f68faa02205bdb",
-        "uncompressedSize": 14986,
-        "uncompressedSha256": "c97a2c575ef826f55c822732fd5ad8e6bb49cfb2210b65649e4169e8952c8444",
+        "file": "prineo-base-to-v24.ppd.gz",
+        "size": 5307,
+        "sha256": "20960f2097111e0d40fbc9de196933c248e6f97f52642799d9ae53ab36d00c8a",
+        "uncompressedSize": 19174,
+        "uncompressedSha256": "fc1aeea1f51f90c4758470d7ff379e4aa22d368f7ab95e71aceaf30a2c0c83aa",
         "compression": "gzip"
       }
     },
@@ -36,11 +36,11 @@
         "sha256": "55d2642b8d3e9d1f979d05152855f155ca90badce7f2879e84fb37f747159766"
       },
       "payload": {
-        "file": "prineo-camfix-to-v20-1.ppd.gz",
-        "size": 3839,
-        "sha256": "8ac08309985e344a617d93393602d529f156c13212e4fbd1970d33686cf7e2ce",
-        "uncompressedSize": 14397,
-        "uncompressedSha256": "15f9e1f6275b78fb330bafea60b45939153b19004970d9dabae6b5421d721e5a",
+        "file": "prineo-camfix-to-v24.ppd.gz",
+        "size": 5188,
+        "sha256": "b078e694d5fd1b993ac04a1c4b7288a2277ba4ba8f8f54f919726567245ac1ea",
+        "uncompressedSize": 18585,
+        "uncompressedSha256": "c0bccc53df85a641091fc9f30932d2433d069c3307781beaf64d491880f04b39",
         "compression": "gzip"
       }
     }
@@ -131,7 +131,22 @@
     "v20DreamBrightnessPercent": 100,
     "v20BrightnessNewOutputUserConfirmed": false,
     "endQrEnabled": true,
-    "experimentalFullscreenFadeIncluded": false
+    "experimentalFullscreenFadeIncluded": false,
+    "v22CharaMakeHairFirst": true,
+    "v22NameAndFaceChangeSkipped": true,
+    "v22NativePartsAllAvailable": true,
+    "v22PersistentPlayerUnlockBitsChanged": false,
+    "v22StampRallyBitsChanged": false,
+    "v22GameTested": false,
+    "v22LifecycleNativeCases": 48,
+    "v22AllUnlockArgumentNativeCases": 12,
+    "v24BasePrintBeforePurchase": true,
+    "v24GodLiveOnlyTv": true,
+    "v24ShopBeforeOptionalCharaMake": true,
+    "v24Second3dsQuestionSkipped": true,
+    "v24AdditionalPrintOnlyPurchasedItems": true,
+    "v24BaseItemPrependUsed": false,
+    "v24GameTested": false
   },
   "privacy": "All source bytes remain in the browser. Only prebuilt delta/static application assets are downloaded. No source, filename or checksum upload or telemetry.",
   "limitations": [
@@ -141,7 +156,9 @@
     "Native self-ticket, duplicate-ticket, item/appearance and live-mode selection rules remain active. V17 Friend in-game recognition is not yet user-confirmed.",
     "QRReader.dll is required and verified from the original archive; it is not included in the output ZIP or hosted on the server.",
     "Virtual camera registration/capture helper and other Windows prerequisites are separate installation steps.",
-    "Dream postplay flow was user-confirmed; the new 100% DreamPrint brightness still needs a new in-game output check.",
-    "The unsuccessful experimental V21 fullscreen Fade correction is excluded; partial white transitions remain unresolved."
+    "The earlier V19 Dream route was user-confirmed. V24 changes the order; that reordered flow and the new 100% DreamPrint output are not yet user-confirmed.",
+    "The unsuccessful experimental V21 fullscreen Fade correction is excluded; partial white transitions remain unresolved.",
+    "V22 changes CharaMake to start at hairstyle with native full-part availability. Isolated native lifecycle and ABI checks passed; a V22 normal-game playthrough is not yet user-confirmed. Stamp-rally ownership and entrance-retention debug options are not forced.",
+    "V24 retains the base Print/DreamPrint before BuyNew coins. GodLive is retained for TV live only in the supported current menu routes. Paid Shop may enter CharaMake when the first question is accepted; only additional purchases are printed afterward. Reordered V24 play has not been user-confirmed."
   ]
 }
